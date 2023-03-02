@@ -3,6 +3,7 @@ import { useAtom } from '@reatom/npm-react';
 import React, { FC } from 'react';
 import { fetchCharacters } from '../../api';
 import { IInfo } from '../../api/types';
+import { Characters } from '../Characters/Characters';
 
 const infoInitial: IInfo = { count: 0, pages: 0, next: '', prev: '' };
 
@@ -10,7 +11,7 @@ const searchAtom = atom('', 'searchAtom');
 const pageAtom = atom(1, 'pageAtom');
 const infoAtom = atom(infoInitial, 'infoAtom');
 
-const fetchCharactersAction = reatomAsync(async (ctx, name, page) => {
+export const fetchCharactersAction = reatomAsync(async (ctx, name, page) => {
   await sleep(400);
   const response = await fetchCharacters(name, page, ctx.controller);
   if (response) {
@@ -45,17 +46,7 @@ export const SearchCharacter: FC = () => {
       />
       {!characters?.length && search && !isLoading && 'Loading...'}
       <ul>
-        {search &&
-          characters?.map(({ id, name, image, gender, species, status, type }) => (
-            <li key={id}>
-              <h2>{name}</h2>
-              <img src={image} alt='' />
-              <p> {gender}</p>
-              <p>{species}</p>
-              <p>{status}</p>
-              <p>{type}</p>
-            </li>
-          ))}
+        {search && <Characters />}
         <button
           onClick={() => {
             if (page <= 1) return;
