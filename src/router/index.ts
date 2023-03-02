@@ -1,4 +1,4 @@
-import { AboutAuthor } from '../pages';
+import { About } from '../pages';
 import { Character } from '../pages';
 
 export interface IRoute {
@@ -8,8 +8,8 @@ export interface IRoute {
 }
 
 export enum RouteNames {
-  CHARACTER = '/',
-  ABOUT_AUTHOR = '/aboutAuthor',
+  CHARACTER = '/character',
+  ABOUT = '/',
   NOT_FOUND = '*',
 }
 
@@ -19,8 +19,8 @@ export const routes: IRoute[] = [
     element: Character,
   },
   {
-    path: RouteNames.ABOUT_AUTHOR,
-    element: AboutAuthor,
+    path: RouteNames.ABOUT,
+    element: About,
   },
   {
     path: RouteNames.NOT_FOUND,

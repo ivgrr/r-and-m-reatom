@@ -1,6 +1,6 @@
 /* IMPORTS */
-import { AboutAuthor } from './AboutAuthor/AboutAuthor';
+import { About } from './About/About';
 import { Character } from './Character/Character';
 
 /* EXPORTS */
-export { AboutAuthor, Character };
+export { About, Character };

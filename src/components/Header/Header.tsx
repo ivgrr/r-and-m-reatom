@@ -11,11 +11,11 @@ export const Header: FC = () => (
         <Logo />
       </Link>
       <div className={styles.links}>
+        <Link className={styles.link} to={RouteNames.ABOUT}>
+          About
+        </Link>
         <Link className={styles.link} to={RouteNames.CHARACTER}>
           Characters
-        </Link>
-        <Link className={styles.link} to={RouteNames.ABOUT_AUTHOR}>
-          About author
         </Link>
       </div>
     </div>
