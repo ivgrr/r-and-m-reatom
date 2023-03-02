@@ -1,4 +1,4 @@
-# Look for Rick and Morty characters and more written in Reatom
+# Look for Rick and Morty characters and more. Written in Reatom.
 
 ### `npm start`
 

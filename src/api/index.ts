@@ -8,12 +8,12 @@ const API_CHARACTER_ALL = `${API}/character`;
 /* CHARACTER */
 export const getLinkCharactersByPage = (page: number) => `${API_CHARACTER_ALL}/?page=${page}`;
 export const getLinkCharacterById = (id: number) => `${API_CHARACTER_ALL}/${id}`;
-export const getLinkCharactersByName = (name: string) => `${API_CHARACTER_ALL}?name=${name}`;
+export const getLinkCharacters = (name: string, page: number) =>
+  `${API_CHARACTER_ALL}/?page=${page}&name=${name}`;
 
-export const fetchCharactersByName = async (name: string, controller: AbortController) => {
-  const data = await fetch(getLinkCharactersByName(name), controller)
+export const fetchCharacters = async (name: string, page: number, controller: AbortController) => {
+  const data = await fetch(getLinkCharacters(name, page), controller)
     .then<ApiResponse>((data) => data.json())
     .catch((err) => console.error(err));
-
-  if (data) return data;
+  return data;
 };
