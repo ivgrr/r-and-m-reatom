@@ -1,14 +1,15 @@
-import { About } from '../pages';
-import { Character } from '../pages';
+import { About, Character as CharacterPage } from '../pages';
+import { CharacterDetails } from '../components/CharacterDetails/CharacterDetails';
 
 export interface IRoute {
   path: string;
-  element: React.ComponentType;
+  element: React.ComponentType<any>;
   replace?: boolean;
 }
 
 export enum RouteNames {
   CHARACTER = '/character',
+  CHARACTER_ID = '/character/:id',
   ABOUT = '/',
   NOT_FOUND = '*',
 }
@@ -16,7 +17,11 @@ export enum RouteNames {
 export const routes: IRoute[] = [
   {
     path: RouteNames.CHARACTER,
-    element: Character,
+    element: CharacterPage,
+  },
+  {
+    path: RouteNames.CHARACTER_ID,
+    element: CharacterDetails,
   },
   {
     path: RouteNames.ABOUT,
@@ -24,6 +29,6 @@ export const routes: IRoute[] = [
   },
   {
     path: RouteNames.NOT_FOUND,
-    element: Character,
+    element: About,
   },
 ];

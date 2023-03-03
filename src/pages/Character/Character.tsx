@@ -4,6 +4,7 @@ import { Characters } from '../../components/Characters/Characters';
 import { SearchCharacter } from '../../components/SearchCharacter/SearchCharacter';
 import { ButtonUI } from '../../components/UI/ButtonUI/ButtonUI';
 import { fetchCharactersAction, infoAtom, pageAtom, searchAtom } from '../../model/character';
+import { scrollTop } from '../../utils';
 
 export const Character: FC = () => {
   const [search] = useAtom(searchAtom);
@@ -11,14 +12,6 @@ export const Character: FC = () => {
   const [characters] = useAtom(fetchCharactersAction.dataAtom);
   const [page, setPage] = useAtom(pageAtom);
   const [info] = useAtom(infoAtom);
-
-  const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-  };
 
   const onPrevClick = () => {
     if (page > 1) {
