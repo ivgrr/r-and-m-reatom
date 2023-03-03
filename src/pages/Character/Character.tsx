@@ -3,7 +3,13 @@ import React, { FC } from 'react';
 import { Characters } from '../../components/Characters/Characters';
 import { SearchCharacter } from '../../components/SearchCharacter/SearchCharacter';
 import { ButtonUI } from '../../components/UI/ButtonUI/ButtonUI';
-import { fetchCharactersAction, infoAtom, pageAtom, searchAtom } from '../../model/character';
+import {
+  fetchCharactersAction,
+  infoAtom,
+  pageAtom,
+  pageController,
+  searchAtom,
+} from '../../model/character';
 import { scrollTop } from '../../utils';
 
 export const Character: FC = () => {
@@ -12,6 +18,7 @@ export const Character: FC = () => {
   const [characters] = useAtom(fetchCharactersAction.dataAtom);
   const [page, setPage] = useAtom(pageAtom);
   const [info] = useAtom(infoAtom);
+  useAtom(pageController);
 
   const onPrevClick = () => {
     if (page > 1) {
@@ -21,7 +28,7 @@ export const Character: FC = () => {
   };
 
   const onNextClick = () => {
-    if (page < info.pages) {
+    if (page < info?.pages) {
       setPage(page + 1);
       scrollTop();
     }
@@ -34,7 +41,7 @@ export const Character: FC = () => {
       {!isLoading && search && characters?.length && (
         <div>
           <ButtonUI onClick={onPrevClick}>{'<'}</ButtonUI>
-          {`${page}/${info.pages}`}
+          {`${page}/${info?.pages}`}
           <ButtonUI onClick={onNextClick}>{'>'}</ButtonUI>
         </div>
       )}

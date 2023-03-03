@@ -1,4 +1,4 @@
-import { atom, reatomAsync, sleep, withAbort, withDataAtom } from '@reatom/framework';
+import { atom, onUpdate, reatomAsync, sleep, withAbort, withDataAtom } from '@reatom/framework';
 import { fetchCharacters, fetchSingleCharacter } from '../api';
 import { IInfo } from '../api/types';
 
@@ -30,14 +30,18 @@ const fetchCharactersAction = reatomAsync(async (ctx, name, page) => {
 const characterController = atom((ctx) => {
   const id = ctx.spy(currentCharacterIdAtom);
   if (id) fetchSingleCharacterAction(ctx, id);
-});
+}, 'characterController');
 
 const searchController = atom((ctx) => {
   const search = ctx.spy(searchAtom);
   const page = ctx.spy(pageAtom);
-
   if (search) fetchCharactersAction(ctx, search, page);
 }, 'searchController');
+
+const pageController = atom((ctx) => {
+  const search = ctx.spy(searchAtom);
+  if (search) pageAtom(ctx, 1);
+});
 
 export {
   searchAtom,
@@ -48,4 +52,5 @@ export {
   fetchCharactersAction,
   characterController,
   searchController,
+  pageController,
 };
