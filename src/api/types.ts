@@ -15,12 +15,12 @@ export interface ICharacter {
   species: string;
   type: string;
   gender: string;
-  origin: IOrigin;
-  location: Location;
+  origin?: IOrigin;
+  location?: Location;
   image: string;
-  episode: string[];
-  url: string;
-  created: string;
+  episode?: string[];
+  url?: string;
+  created?: string;
 }
 
 export interface IInfo {
