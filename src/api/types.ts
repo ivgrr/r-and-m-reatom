@@ -23,6 +23,10 @@ export interface ICharacter {
   created?: string;
 }
 
+export interface ICharacterError {
+  error: string;
+}
+
 export interface IInfo {
   count: number;
   pages: number;

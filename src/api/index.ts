@@ -1,4 +1,4 @@
-import { ApiResponse, ICharacter } from './types';
+import { ApiResponse, ICharacter, ICharacterError } from './types';
 
 /* API */
 const API = 'https://rickandmortyapi.com/api';
@@ -20,7 +20,7 @@ export const fetchCharacters = async (name: string, page: number, controller: Ab
 
 export const fetchSingleCharacter = async (id: number, controller: AbortController) => {
   const data = await fetch(getLinkCharacterById(id), controller)
-    .then<ICharacter>((data) => data.json())
+    .then<ICharacter | ICharacterError>((data) => data.json())
     .catch((err) => console.log(err));
   return data;
 };

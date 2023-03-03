@@ -10,11 +10,12 @@ const pageAtom = atom(1, 'pageAtom');
 const infoAtom = atom(infoInitial, 'infoAtom');
 
 const fetchSingleCharacterAction = reatomAsync(async (ctx, id) => {
+  sleep(400);
   const response = await fetchSingleCharacter(id, ctx.controller);
   if (response) {
     return response;
   }
-}, 'fetchSingleCharacterAction').pipe(withDataAtom({}));
+}, 'fetchSingleCharacterAction').pipe(withDataAtom(null));
 
 const fetchCharactersAction = reatomAsync(async (ctx, name, page) => {
   await sleep(400);

@@ -12,21 +12,25 @@ export const CharacterDetails = () => {
   const { id: characterIdParam } = useParams<keyof { id: number }>();
   const [isLoading] = useAtom((ctx) => ctx.spy(fetchSingleCharacterAction.pendingAtom) > 0);
   const [character] = useAtom(fetchSingleCharacterAction.dataAtom);
-  const [currentCharacterId, setCurrentCharacterId] = useAtom(currentCharacterIdAtom);
-  if (characterIdParam) setCurrentCharacterId(+characterIdParam);
-  // const getCurrentCharacter = (id: number) => {
-  //   const character = characters?.filter((character) => character.id === id).at(0);
-  //   return character;
-  // };
+  const [, setCurrentCharacterId] = useAtom(currentCharacterIdAtom);
+  if (characterIdParam) setCurrentCharacterId(+characterIdParam!);
 
   return (
-    <div>
-      {/* <h2>{name}</h2>
-      <img src={image} alt={`${name} image`} />
-      <p>{gender}</p>
-      <p>{species}</p>
-      <p>{status}</p>
-      <p>{type}</p> */}
-    </div>
+    <>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : character && 'id' in character ? (
+        <div>
+          <h2>{character.name}</h2>
+          <img src={character.image} alt={`${character.name} image`} />
+          <p>{character.gender}</p>
+          <p>{character.species}</p>
+          <p>{character.status}</p>
+          <p>{character.type}</p>
+        </div>
+      ) : (
+        <div>NotFound</div>
+      )}
+    </>
   );
 };
