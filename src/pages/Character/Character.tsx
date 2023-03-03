@@ -1,5 +1,6 @@
-import { useAtom } from '@reatom/npm-react';
 import React, { FC } from 'react';
+import styles from './Character.module.css';
+import { useAtom } from '@reatom/npm-react';
 import { Characters } from '../../components/Characters/Characters';
 import { SearchCharacter } from '../../components/SearchCharacter/SearchCharacter';
 import { ButtonUI } from '../../components/UI/ButtonUI/ButtonUI';
@@ -39,9 +40,9 @@ export const Character: FC = () => {
       <SearchCharacter />
       {search && <Characters />}
       {!isLoading && search && characters?.length && (
-        <div>
+        <div className={styles.buttonContainer}>
           <ButtonUI onClick={onPrevClick}>{'<'}</ButtonUI>
-          {`${page}/${info?.pages}`}
+          <span className='pages'>{`${page}/${info?.pages}`}</span>
           <ButtonUI onClick={onNextClick}>{'>'}</ButtonUI>
         </div>
       )}

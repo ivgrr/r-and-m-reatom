@@ -1,4 +1,5 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react';
+import styles from './ButtonUI.module.css';
 
 interface IButtonUIProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
@@ -8,7 +9,7 @@ interface IButtonUIProps
 
 export const ButtonUI: FC<IButtonUIProps> = ({ children, onClick, ...props }) => {
   return (
-    <button onClick={onClick} {...props}>
+    <button className={styles.button} onClick={onClick} {...props}>
       {children}
     </button>
   );

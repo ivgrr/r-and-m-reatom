@@ -1,5 +1,6 @@
-import { useAtom } from '@reatom/npm-react';
 import React, { FC } from 'react';
+import styles from './Characters.module.css';
+import { useAtom } from '@reatom/npm-react';
 import { fetchCharactersAction, searchAtom } from '../../model/character';
 import { Character } from '../Character/Character';
 
@@ -11,7 +12,7 @@ export const Characters: FC = () => {
     <>
       {isLoading && 'Loading...'}
       {!characters?.length && search && !isLoading && 'NotFound'}
-      <ul>
+      <ul className={styles.cards}>
         {characters?.map(({ id, name, image, gender, species, status, type }) => (
           <Character
             key={id}

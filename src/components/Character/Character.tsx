@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import styles from './Character.module.css';
 import { Link } from 'react-router-dom';
 import { ICharacter } from '../../api/types';
 import { RouteNames } from '../../router';
@@ -13,25 +14,24 @@ interface ICharacterProps extends ICharacter {
   image: string;
 }
 
-export const Character: FC<ICharacterProps> = ({
-  id,
-  name,
-  image,
-  gender,
-  species,
-  status,
-  type,
-}) => {
+export const Character: FC<ICharacterProps> = ({ id, name, image, gender, species, status }) => {
   return (
-    <li>
-      <h2>{name}</h2>
+    <li className={styles.card}>
       <Link to={`${RouteNames.CHARACTER}/${id}`}>
-        <img src={image} alt={`${name} image`} />
+        <img className={styles.image} src={image} alt={`${name} image`} />
       </Link>
-      <p>{gender}</p>
-      <p>{species}</p>
-      <p>{status}</p>
-      <p>{type}</p>
+      <h3 className={styles.name}>{name}</h3>
+      <div className={styles.info}>
+        <div className={styles.infoItem}>
+          <p className={styles.gender}>{gender}</p>
+        </div>
+        <div className={styles.infoItem}>
+          <p className={styles.species}>{species}</p>
+        </div>
+        <div className={styles.infoItem}>
+          <p className={styles.status}>{status}</p>
+        </div>
+      </div>
     </li>
   );
 };

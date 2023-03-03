@@ -1,5 +1,6 @@
-import { useAtom } from '@reatom/npm-react';
 import React from 'react';
+import styles from './CharacterDetails.module.css';
+import { useAtom } from '@reatom/npm-react';
 import { useParams } from 'react-router-dom';
 import {
   characterController,
@@ -20,13 +21,17 @@ export const CharacterDetails = () => {
       {isLoading ? (
         <div>Loading...</div>
       ) : character && 'id' in character ? (
-        <div>
-          <h2>{character.name}</h2>
-          <img src={character.image} alt={`${character.name} image`} />
-          <p>{character.gender}</p>
-          <p>{character.species}</p>
-          <p>{character.status}</p>
-          <p>{character.type}</p>
+        <div className={styles.card}>
+          <img className={styles.image} src={character.image} alt={`${name} image`} />
+          <h3 className={styles.name}>{character.name}</h3>
+          <div className={styles.info}>
+            <div className={styles.infoItem}>
+              <p className={styles.gender}>{character.gender}</p>
+            </div>
+            <div className={styles.infoItem}>
+              <p className={styles.species}>{character.species}</p>
+            </div>
+          </div>
         </div>
       ) : (
         <div>NotFound</div>

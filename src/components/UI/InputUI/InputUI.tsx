@@ -1,4 +1,5 @@
 import React, { DetailedHTMLProps, FC, InputHTMLAttributes } from 'react';
+import styles from './InputUI.module.css';
 
 interface IInputUIProps
   extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
@@ -6,5 +7,5 @@ interface IInputUIProps
 }
 
 export const InputUI: FC<IInputUIProps> = ({ onChange, ...props }) => {
-  return <input onChange={onChange} {...props} />;
+  return <input className={styles.input} onChange={onChange} {...props} />;
 };

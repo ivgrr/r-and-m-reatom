@@ -3,8 +3,13 @@
   justify-content: space-between;
   align-items: center;
   min-height: 12vh;
-  max-width: 90vw;
+  max-width: 95vw;
   margin: 0 auto;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .link {
@@ -13,22 +18,36 @@
   text-decoration: none;
   color: #ffffff;
   font-size: 1.1rem;
-  border: 2px solid grey;
+  border: 2px solid #808080;
   border-radius: 1rem;
   margin-left: 0.5rem;
+  background: #808080;
 }
 
 
 .link:hover {
-  background-color: grey;
-  color: #ffffff;
+  background-color: white;
+  color: #808080;
   transition: 0.5s ease-in-out;
 }
 
-@media (max-width: 520px) {
+@media screen and (max-width: 520px) {
   .link {
-    padding: 0.4rem;
     font-size: 0.8rem;
     margin-right: 0.2rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .links {
+    flex-direction: column;
+  }
+
+  .link {
+    margin: 0.3rem
   }
 }

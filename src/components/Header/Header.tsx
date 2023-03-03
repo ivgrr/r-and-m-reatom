@@ -7,8 +7,10 @@ import { ReactComponent as Logo } from '../../assets/img/logo.svg';
 export const Header: FC = () => (
   <header className={styles.header}>
     <div className={styles.container}>
-      <Link to={RouteNames.CHARACTER}>
-        <Logo />
+      <Link to={RouteNames.ABOUT}>
+        <div className={styles.logo}>
+          <Logo />
+        </div>
       </Link>
       <div className={styles.links}>
         <Link className={styles.link} to={RouteNames.ABOUT}>
