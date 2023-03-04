@@ -21,18 +21,20 @@ export const CharacterDetails: FC = () => {
       {isLoading ? (
         <div>Loading...</div>
       ) : character && 'id' in character ? (
-        <div className={styles.card}>
-          <img className={styles.image} src={character.image} alt={`${name} image`} />
-          <h3>{character.name}</h3>
-          <div className={styles.info}>
-            <div className={styles.infoItem}>
-              <p className={styles.gender}>{character.gender}</p>
-            </div>
-            <div className={styles.infoItem}>
-              <p className={styles.species}>{character.species}</p>
-            </div>
-            <div className={styles.infoItem}>
-              <p className={styles.status}>{character.status}</p>
+        <div className={styles.container}>
+          <div className={styles.card}>
+            <img className={styles.image} src={character.image} alt={`${character.name} image`} />
+            <h3>{character.name}</h3>
+            <div className={styles.info}>
+              <div className={styles.infoItem}>
+                <p className={styles.gender}>{character.gender}</p>
+              </div>
+              <div className={styles.infoItem}>
+                <p className={styles.species}>{character.species}</p>
+              </div>
+              <div className={styles.infoItem}>
+                <p className={styles.status}>{character.status}</p>
+              </div>
             </div>
           </div>
         </div>

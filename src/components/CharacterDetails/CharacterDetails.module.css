@@ -1,22 +1,25 @@
+.container {
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
 .card {
   list-style: none;
-  
+
   background-color: #ffffff;
   border-radius: 1rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   padding: 0;
   margin: 0.3rem;
   padding: 1rem;
-  
-  flex-basis: calc(25% - 20px);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 25%;
   margin: 0 auto;
+  max-width: 70%;
 }
-
 
 .info {
   display: flex;
@@ -34,6 +37,7 @@
 
 .image {
   border-radius: 0.5rem;
+  max-width: 100%;
 }
 
 .species {
@@ -43,4 +47,3 @@
 .status {
   color: #e24242;
 }
-
