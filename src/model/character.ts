@@ -1,4 +1,4 @@
-import { atom, onUpdate, reatomAsync, sleep, withAbort, withDataAtom } from '@reatom/framework';
+import { atom, reatomAsync, sleep, withAbort, withDataAtom } from '@reatom/framework';
 import { fetchCharacters, fetchSingleCharacter } from '../api';
 import { IInfo } from '../api/types';
 

@@ -5,10 +5,10 @@ import styles from './Header.module.css';
 import { ReactComponent as Logo } from '../../assets/img/logo.svg';
 
 export const Header: FC = () => (
-  <header className={styles.header}>
+  <header>
     <div className={styles.container}>
       <Link to={RouteNames.ABOUT}>
-        <div className={styles.logo}>
+        <div>
           <Logo />
         </div>
       </Link>

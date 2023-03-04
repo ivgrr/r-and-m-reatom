@@ -20,7 +20,7 @@ export const Character: FC<ICharacterProps> = ({ id, name, image, gender, specie
       <Link to={`${RouteNames.CHARACTER}/${id}`}>
         <img className={styles.image} src={image} alt={`${name} image`} />
       </Link>
-      <h3 className={styles.name}>{name}</h3>
+      <h3>{name}</h3>
       <div className={styles.info}>
         <div className={styles.infoItem}>
           <p className={styles.gender}>{gender}</p>

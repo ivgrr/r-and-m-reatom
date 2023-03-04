@@ -24,7 +24,6 @@
   background: #808080;
 }
 
-
 .link:hover {
   background-color: white;
   color: #808080;
@@ -48,6 +47,6 @@
   }
 
   .link {
-    margin: 0.3rem
+    margin: 0.3rem;
   }
 }

@@ -1,9 +1,10 @@
 import { About, Character as CharacterPage } from '../pages';
 import { CharacterDetails } from '../components/CharacterDetails/CharacterDetails';
+import { ReactNode } from 'react';
 
 export interface IRoute {
   path: string;
-  element: React.ComponentType<any>;
+  element: React.FunctionComponent<{ children?: ReactNode }>;
   replace?: boolean;
 }
 
