@@ -2,8 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  flex-flow: column nowrap;
 }
 
 .title {
   text-transform: uppercase;
+  margin: 0.5rem 0.2rem;
+}
+
+.subtitle {
+  margin: 0.5rem 0.2rem;
+  color: rgb(0, 128, 0);
 }
