@@ -8,8 +8,14 @@
   align-content: center;
 }
 
-@media (max-width: 720px) {
+@media screen and (max-width: 720px) {
   .cards {
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .cards {
+    flex-direction: column;
   }
 }
